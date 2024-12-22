@@ -1,2 +1,2 @@
-web: python scripts.Visual_UOA.py
+web: python scripts/Visual_UOA.py
 
