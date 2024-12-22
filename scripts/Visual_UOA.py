@@ -2,7 +2,7 @@ import pandas as pd
 import re
 import plotly.express as px
 from dash import Dash, dcc, html, Input, Output
-from UOA_file_selector import select_and_consolidate_files
+from scripts.UOA_file_selector import select_and_consolidate_files
 
 # Inicializa la aplicación Dash
 app = Dash(__name__)
