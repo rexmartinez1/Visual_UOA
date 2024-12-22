@@ -1,2 +1,2 @@
-web: gunicorn scripts.Visual_UOA:server
+web: python scripts.Visual_UOA.py
 
