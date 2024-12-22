@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from datetime import datetime
-from tkinter import Tk, filedialog
+#from tkinter import Tk, filedialog
 
 # Ruta base fija para el proyecto
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -49,23 +49,14 @@ def consolidate_files(file_paths):
     return output_file
 
 
+
 def select_and_consolidate_files():
-    """Selecciona archivos, los consolida y devuelve la ruta del archivo listo."""
-    print("Selecciona los archivos para el análisis.")
-    file_paths = select_files()
+    # Usar una variable de entorno para la ruta de los archivos
+    file_path = os.getenv("DEFAULT_FILE_PATH", "/app/data/UOAdataToVisualize/sample.csv")
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"El archivo especificado no existe: {file_path}")
+    return file_path
 
-    if not file_paths:
-        print("No se seleccionaron archivos.")
-        return None
-
-    if len(file_paths) > 1:
-        print("Consolidando archivos seleccionados...")
-        consolidated_file = consolidate_files(file_paths)
-        print(f"Archivos consolidados en: {consolidated_file}")
-        return consolidated_file
-    else:
-        print(f"Archivo único seleccionado: {file_paths[0]}")
-        return file_paths[0]
 
 
 if __name__ == "__main__":
